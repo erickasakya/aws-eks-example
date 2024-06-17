@@ -31,15 +31,15 @@ Remember that service accounts are need before deploying ingress components.
 ``` eksctl utils associate-iam-oidc-provider --cluster lil-eks --approve ```
 
 ## create service account using the iam policy 
-eksctl create iamserviceaccount \
+``eksctl create iamserviceaccount \
     --cluster=lil-eks \
     --name=aws-load-balancer-controller \
     --namespace=kube-system \
     --attach-policy-arn=arn:aws:iam::xxxxxxxxxxxx:policy/AWSLoadBalancerControllerIAMPolicy \
-    --approve
+    --approve ``
 
 ## Deploy cert-manager for ssl
-kubectl apply \
+``kubectl apply \
     --validate=false \
-    -f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
+    -f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml``
 
